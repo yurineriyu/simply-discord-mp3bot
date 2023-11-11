@@ -1,6 +1,13 @@
 # simply-discord-mp3bot
 a simply discord bot
 
+## 機能説明
+- mp3をVCで再生する
+- mp3アップロード機能
+- youtubeからの簡易再生
+- 25曲はスラッシュコマンドで再生可能
+- mp3 
+
 ## 要件定義
 
 - オーディオファイルのノーマライゼーション
