@@ -1,12 +1,4 @@
-const {
-  SlashCommandBuilder,
-  VoiceChannel,
-  GuildMember,
-  VoiceState,
-} = require("discord.js");
-const { vc_id } = require("./config.json");
-// BOTをVCに参加させるために必要。
-
+const { SlashCommandBuilder } = require("discord.js");
 const {
   createAudioPlayer,
   createAudioResource,
@@ -17,11 +9,8 @@ const {
 
 module.exports = {
   data: new SlashCommandBuilder()
-    // コマンドの名前
     .setName("premium")
-    // コマンドの説明文
     .setDescription("曲を選択して再生")
-
     .addStringOption((option) =>
       option
         .setName("再生したい曲")
@@ -51,19 +40,14 @@ module.exports = {
     ),
 
   async execute(interaction) {
-    const id = GuildMember({
-      member: interaction.user.id,
-    });
     const connection = joinVoiceChannel({
       guildId: interaction.guildId,
-      channelId: vc_id,
+      channelId: interaction.member.voice.channelId,
       adapterCreator: interaction.guild.voiceAdapterCreator,
       selfMute: false,
       selfDeaf: false,
     });
     await interaction.reply("参加しました！");
-    console.log(GuildMember);
-    console.log(interaction.GuildMember);
 
     const select_info = interaction.options.get("再生したい曲").value;
 
