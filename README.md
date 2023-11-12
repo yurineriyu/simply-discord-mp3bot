@@ -36,7 +36,7 @@ Tab で曲コマンド選択し入力　例：/play example[曲 example を再�
 - /stop_remote（未実装）
 - /exit（未実装）
 - /exit_remote（未実装）
-- /youtube
+- /youtube（未実装）
 - /youtube_remote（未実装）
 - /setting [youtube_volume,mp3_volume]（未実装）
 - /command_view [list,premium_list]（未実装）
