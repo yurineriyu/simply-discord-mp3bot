@@ -1,6 +1,12 @@
 # simply-discord-mp3bot
 a simply discord bot
 
+## npm install
+
+discord.js
+@discordjs/voice
+@discordjs/opus
+
 ## 機能説明（仮）
 - mp3をVCで再生する
 - mp3アップロード機能（未実装）
