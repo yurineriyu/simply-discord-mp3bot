@@ -128,3 +128,8 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+#for this program
+#check config template
+config.json 
+mp3file/**/*.mp3
