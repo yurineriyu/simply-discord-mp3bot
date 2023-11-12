@@ -5,6 +5,7 @@ const {
   StreamType,
   AudioPlayerStatus,
   joinVoiceChannel,
+  entersState,
 } = require("@discordjs/voice");
 
 module.exports = {
@@ -47,8 +48,9 @@ module.exports = {
       selfMute: false,
       selfDeaf: false,
     });
-    await interaction.reply("参加しました！");
-
+    //await interaction.reply("参加しました！");
+    await interaction.reply({ content: '再生するよ!', ephemeral: true });
+    
     const select_info = interaction.options.get("再生したい曲").value;
 
     const player = createAudioPlayer();
@@ -62,5 +64,10 @@ module.exports = {
     player.on(AudioPlayerStatus.Playing, () => {
       console.log("The audio player has started playing!");
     });
+
+    await entersState(player, AudioPlayerStatus.Playing, 10 * 1000);
+    await entersState(player, AudioPlayerStatus.Idle, 24 * 60 * 60 * 1000);
+    // 再生が終了したら抜ける
+    connection.destroy();
   },
 };
