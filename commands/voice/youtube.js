@@ -63,9 +63,9 @@ module.exports = {
       console.log("The audio player has started playing!");
     });
 
-    await entersState(player, AudioPlayerStatus.Playing, 10 * 1000);
+    /* await entersState(player, AudioPlayerStatus.Playing, 10 * 1000);
     await entersState(player, AudioPlayerStatus.Idle, 24 * 60 * 60 * 1000);
-    // 再生が終了したら抜ける
+    // 再生が終了したら抜ける */
     connection.destroy();
   },
 };

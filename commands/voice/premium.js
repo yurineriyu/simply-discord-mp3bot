@@ -18,8 +18,14 @@ module.exports = {
         .setDescription("再生したい曲を選んでね")
         .setRequired(true)
         .addChoices(
-          { name: "応援歌", value: "susuru-ouenka.mp3" },
-          { name: "粉雪", value: "susuru-konayuki.mp3" },
+          {
+            name: "【オリジナル曲】やばいクレーマーのSUSURU TV（本人歌唱ver）",
+            value: "susuru-ouenka.mp3",
+          },
+          {
+            name: "コラ〜！雪【やばいクレーマーのSUSURU TV】",
+            value: "susuru-konayuki.mp3",
+          },
           {
             name: "Officialやばいクレーマーの髭男SUSURU",
             value: "susuru-higedan.mp3",
@@ -36,6 +42,65 @@ module.exports = {
           {
             name: "やばいクレーマーのSUSURUTVが代",
             value: "susuru-kimigayo.mp3",
+          },
+          {
+            name: "やばいクルーマーのSUSURU TV",
+            value: "susuru-ruma.mp3",
+          },
+
+          {
+            name: "garakuta noodle claim",
+            value: "susuru-garakuta.mp3",
+          },
+
+          {
+            name: "やばいクレーマーのSAKURA TV.（独唱・withゆゆうた)SUSURU ver.",
+            value: "susuru-sakura-honnninn.mp3",
+          },
+
+          {
+            name: "啜",
+            value: "susuru-odo.mp3",
+          },
+
+          {
+            name: "ススル・ヴ・クレジデント",
+            value: "susuru-pre.mp3",
+          },
+
+          {
+            name: "やばい白日のSUSURU TV",
+            value: "susuru-hakujitu.mp3",
+          },
+
+          {
+            name: "コラ～！グトレイン",
+            value: "susuru-ragutore.mp3",
+          },
+
+          {
+            name: "3月殺すぞ / レミオロ麺",
+            value: "susuru-sangatu.mp3",
+          },
+
+          {
+            name: "やばいクレーマーの旅立ちの日に",
+            value: "susuru-tabidati.mp3",
+          },
+
+          {
+            name: "やばい命に嫌われているクレーマーのSUSURU TV",
+            value: "susuru-kiraware.mp3",
+          },
+
+          {
+            name: "やばいクレーマーのSAKURA TV(独唱)",
+            value: "susuru-sakura.mp3",
+          },
+
+          {
+            name: "やばいクレーマーの歌コンクール　濃厚豚骨豚無双部門・銀賞",
+            value: "susuru-nonoka.mp3",
           }
         )
     ),
@@ -49,8 +114,8 @@ module.exports = {
       selfDeaf: false,
     });
     //await interaction.reply("参加しました！");
-    await interaction.reply({ content: '再生するよ!', ephemeral: true });
-    
+    await interaction.reply({ content: "再生するよ!", ephemeral: true });
+
     const select_info = interaction.options.get("再生したい曲").value;
 
     const player = createAudioPlayer();
