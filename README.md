@@ -5,7 +5,7 @@ a simply discord bot
 
 ### FFmpeg
 
-'''ffmpeg -version'''
+’’’ ffmpeg -version ’’’
 ## npm install
 
 discord.js
