@@ -1,6 +1,11 @@
 # simply-discord-mp3bot
 a simply discord bot
 
+## 必須コンポーネント
+
+### FFmpeg
+
+'''ffmpeg -version'''
 ## npm install
 
 discord.js
