@@ -118,7 +118,6 @@ module.exports = {
 
   async execute(interaction) {
     const voiceChannel = interaction.options.getChannel("channel");
-
     const connection = joinVoiceChannel({
       guildId: interaction.guildId,
       channelId: voiceChannel.id,
