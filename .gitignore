@@ -132,4 +132,4 @@ dist
 #for this program
 #check config template
 config.json 
-mp3file/**/*.mp3
+mp3file/*.mp3

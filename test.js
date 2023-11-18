@@ -27,3 +27,10 @@ client.once(Events.ClientReady, () => {
 });
 
 client.login(token);
+
+for (var i = 0; i < jsonObject.premium_song.length; i++) {
+  option.addChoices(
+    jsonObject.premium_song[i].name,
+    jsonObject.premium_song[i].value
+  );
+}

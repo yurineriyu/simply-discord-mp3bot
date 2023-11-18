@@ -1,0 +1,12 @@
+{
+  "premium_song": [
+    {
+      "name": "songname",
+      "value": "filename.mp3"
+    },
+    {
+      "name": "songname",
+      "value": "filename.mp3"
+    }
+  ]
+}
