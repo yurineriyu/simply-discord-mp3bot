@@ -1,22 +1,31 @@
 # simply-discord-mp3bot
-a simply discord bot
+
+a simply discord bot with Nodejs  
+Nodejs で動く、mp3 をボイスチャットで再生する超シンプルな DiscordBot です
 
 ## 必須コンポーネント
 
-### FFmpeg
+- Node.js  
+  `node --version`
 
-’’’ ffmpeg -version ’’’
-## npm install
+- FFmpeg  
+  `ffmpeg -version`
 
-discord.js
-@discordjs/voice
-@discordjs/opus
+### Node.js 必須パッケージ
+
+- discord.js
+- @discordjs/voice
+- @discordjs/opus
+- libsodium-wrappers
+
+`npm install discord.js @discordjs/voice @discordjs/opus libsodium-wrappers`
 
 ## 機能説明（仮）
-- mp3をVCで再生する
-- mp3アップロード機能（未実装）
-- youtubeからの簡易再生
-- 25曲はスラッシュコマンドで再生可能
+
+- mp3 を VC で再生する
+- mp3 アップロード機能（未実装）
+- youtube からの簡易再生
+- 25 曲はスラッシュコマンドで再生可能
 
 ## 要件定義（仮）
 
@@ -27,14 +36,15 @@ discord.js
 ##### Bot 再生までのながれ（仮）
 
 流したいボイスチャットに入る
-スラッシュコマンド/play を入力  
+スラッシュコマンド/play を入力
 Tab で曲コマンド選択し入力　例：/play example[曲 example を再生するコマンド]
 
 ##### Bot コマンド一覧（仮）
-```例）/example [second argument] [third argument]```
+
+`例）/example [second argument] [third argument]`
 
 - /play [music1,music2,...max25]()
-- /play_remote（未実装）
+- /play_remote
 - /premium
 - /premium_remote（未実装）
 - /stop（未実装）
