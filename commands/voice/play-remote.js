@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require("discord.js");
+const { SlashCommandBuilder, ChannelType } = require("discord.js");
 const {
   createAudioPlayer,
   createAudioResource,
@@ -8,32 +8,33 @@ const {
   entersState,
 } = require("@discordjs/voice");
 
-const fs = require("fs");
-
-const jsonObject = JSON.parse(fs.readFileSync("./song_config.json", "utf8"));
-
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("premium_free")
-    .setDescription("曲を選択して再生")
+    .setName("play-remote")
+    .setDescription("コマンドとチャンネルを指定して再生")
     .addStringOption((option) =>
       option
-        .setName("再生したい曲")
-        .setDescription("再生したい曲を選んでね")
+        .setName("コマンド")
+        .setDescription("再生したい曲のコマンドを入力")
         .setRequired(true)
-
-        .addChoices(
-          ...jsonObject.premium_song.map((song) => ({
-            name: song.name,
-            value: song.value,
-          }))
-        )
+    )
+    .addChannelOption((option) =>
+      option
+        // optionの名前
+        .setName("再生チャンネル")
+        // optionの説明
+        .setDescription("再生したいチャンネルを選択")
+        // optionが必須かどうか
+        .setRequired(true)
+        // チャンネルのタイプをVCに指定
+        .addChannelTypes(ChannelType.GuildVoice)
     ),
 
   async execute(interaction) {
+    const voiceChannel = interaction.options.getChannel("channel");
     const connection = joinVoiceChannel({
       guildId: interaction.guildId,
-      channelId: interaction.member.voice.channelId,
+      channelId: voiceChannel.id,
       adapterCreator: interaction.guild.voiceAdapterCreator,
       selfMute: false,
       selfDeaf: false,
@@ -41,10 +42,10 @@ module.exports = {
     //await interaction.reply("参加しました！");
     await interaction.reply({ content: "再生するよ!", ephemeral: true });
 
-    const select_info = interaction.options.get("再生したい曲").value;
+    const select_info = interaction.options.get("コマンド").value;
 
     const player = createAudioPlayer();
-    const resource = createAudioResource("./mp3file/" + select_info, {
+    const resource = createAudioResource("./mp3file/" + select_info + ".mp3", {
       inputType: StreamType.Arbitrary,
       inlineVolume: true,
     });

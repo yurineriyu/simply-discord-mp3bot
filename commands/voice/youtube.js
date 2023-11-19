@@ -15,7 +15,7 @@ module.exports = {
     // コマンドの名前
     .setName("youtube")
     // コマンドの説明文
-    .setDescription("youtubeを再生")
+    .setDescription("youtubeから再生")
 
     .addStringOption((option) =>
       option
@@ -33,7 +33,7 @@ module.exports = {
       selfDeaf: false,
     });
     //await interaction.reply("参加しました！");
-    await interaction.reply({ content: '再生するよ!', ephemeral: true });
+    await interaction.reply({ content: "再生するよ!", ephemeral: true });
 
     const player = createAudioPlayer();
     connection.subscribe(player);

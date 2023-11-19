@@ -43,10 +43,10 @@ Tab で曲コマンド選択し入力　例：/play example[曲 example を再�
 
 `例）/example [second argument] [third argument]`
 
-- /play [music1,music2,...max25]()
-- /play_remote
-- /premium
-- /premium_remote（未実装）
+- /play_{config} [music1,music2,...max25]
+- /play_{config}-remote [music1,music2,...max25] [VoiceChannnel1,VoiceChannnel2,...]
+- /play [songname]
+- /play-remote [songname] [VoiceChannnel1,VoiceChannnel2,...]
 - /stop（未実装）
 - /stop_remote（未実装）
 - /exit（未実装）

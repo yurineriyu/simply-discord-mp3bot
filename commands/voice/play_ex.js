@@ -8,15 +8,26 @@ const {
   entersState,
 } = require("@discordjs/voice");
 
+const fs = require("fs");
+
+const jsonObject = JSON.parse(fs.readFileSync("./song_config.json", "utf8"));
+const { command_name } = require("../../config.json");
+
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("play")
-    .setDescription("コマンドを指定して再生")
+    .setName("play_" + command_name)
+    .setDescription("曲を選択して再生")
     .addStringOption((option) =>
       option
-        .setName("コマンド")
-        .setDescription("再生したい曲のコマンドを入力")
+        .setName("再生したい曲")
+        .setDescription("再生したい曲を選んでね")
         .setRequired(true)
+        .addChoices(
+          ...jsonObject.premium_song.map((song) => ({
+            name: song.name,
+            value: song.value,
+          }))
+        )
     ),
 
   async execute(interaction) {
@@ -30,10 +41,10 @@ module.exports = {
     //await interaction.reply("参加しました！");
     await interaction.reply({ content: "再生するよ!", ephemeral: true });
 
-    const select_info = interaction.options.get("コマンド").value;
+    const select_info = interaction.options.get("再生したい曲").value;
 
     const player = createAudioPlayer();
-    const resource = createAudioResource("./mp3file/" + select_info + ".mp3", {
+    const resource = createAudioResource("./mp3file/" + select_info, {
       inputType: StreamType.Arbitrary,
       inlineVolume: true,
     });

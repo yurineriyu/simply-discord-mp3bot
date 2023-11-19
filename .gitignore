@@ -133,3 +133,4 @@ dist
 #check config template
 config.json
 mp3file/*.mp3
+song_config.json
