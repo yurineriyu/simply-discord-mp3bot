@@ -42,7 +42,7 @@ module.exports = {
     ),
 
   async execute(interaction) {
-    const voiceChannel = interaction.options.getChannel("channel");
+    const voiceChannel = interaction.options.getChannel("再生チャンネル");
     const connection = joinVoiceChannel({
       guildId: interaction.guildId,
       channelId: voiceChannel.id,
