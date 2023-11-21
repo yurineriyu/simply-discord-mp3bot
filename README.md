@@ -2,7 +2,7 @@
 
 a simply discord bot with Nodejs  
 Nodejs で動く、mp3 をボイスチャットで再生する超シンプルな DiscordBot です
-
+コマンド作成
 ## 必須コンポーネント
 
 - Node.js  
